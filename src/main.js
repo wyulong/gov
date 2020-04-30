@@ -4,8 +4,7 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import App from './App'
 import router from './router'
-import {AjaxPlugin } from 'vux'
-
+import {AjaxPlugin} from 'vux'
 
 FastClick.attach(document.body)
 

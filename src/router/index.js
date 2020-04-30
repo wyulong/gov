@@ -19,7 +19,7 @@ export default new Router({
     {
       path: '/chat',
       component: Chat
-    },    
+    },
     {
       path: '/my',
       component: My

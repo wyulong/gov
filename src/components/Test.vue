@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+  import {Cell, Group} from 'vux'
 
-export default {
-  name: 'test',
-  components: {
-    Group,
-    Cell
+  export default {
+    name: 'test',
+    components: {
+      Group,
+      Cell
+    }
   }
-}
 </script>

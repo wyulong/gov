@@ -3,12 +3,12 @@
     <view-box ref="viewBox" body-padding-bottom="55px">
       <router-view></router-view>
       <tabbar slot="bottom">
-        <tabbar-item selected link="/service" >
+        <tabbar-item selected link="/service">
           <img slot="icon" src="../static/icon/icon.png">
           <img slot="icon-active" src="../static/icon/test.png">
           <span slot="label">微服务</span>
         </tabbar-item>
-        <tabbar-item link="/chat" >
+        <tabbar-item link="/chat">
           <img slot="icon" src="../static/icon/icon.png">
           <img slot="icon-active" src="../static/icon/test.png">
           <span slot="label">微互动</span>
@@ -18,34 +18,35 @@
           <img slot="icon-active" src="../static/icon/test.png">
           <span slot="label">我的</span>
         </tabbar-item>
-    </tabbar>
+      </tabbar>
     </view-box>
   </div>
 </template>
 
 <script>
 
-import {Tabbar, TabbarItem, ViewBox} from 'vux'
+  import {Tabbar, TabbarItem, ViewBox} from 'vux'
 
-export default {
-  name: 'app',
-  components: {
-    Tabbar,
-    TabbarItem,
-    ViewBox
+  export default {
+    name: 'app',
+    components: {
+      Tabbar,
+      TabbarItem,
+      ViewBox
+    }
   }
-}
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/reset.less';
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
+  @import '~vux/src/styles/reset.less';
 
-body {
-  background-color: #fbf9fe;
-}
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #fbf9fe;
+  }
 </style>
