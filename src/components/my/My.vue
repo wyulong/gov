@@ -4,8 +4,8 @@
       <panel :list="userInfo" type="1"/>
     </group>
     <group title="我的办件 ">
-      <cell title="办理中" link="/" value="2"></cell>
-      <cell title="已完成" link="/" value="4"></cell>
+      <cell link="/" title="办理中" value="2"></cell>
+      <cell link="/" title="已完成" value="4"></cell>
     </group>
   </div>
 </template>

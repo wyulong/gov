@@ -23,6 +23,6 @@ export default new Router({
     {
       path: '/my',
       component: My
-    },
+    }
   ]
 })

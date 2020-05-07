@@ -1,18 +1,18 @@
 <template>
   <div>
     <group title="政务公开">
-      <cell title="公告1" link="/" value="2"/>
-      <cell title="公告2" link="/" value="4"/>
+      <cell link="/" title="公告1" value="2"/>
+      <cell link="/" title="公告2" value="4"/>
     </group>
     <group title="效能监督">
-      <cell title="监督事件1" link="/" value="2"/>
-      <cell title="监督事件2" link="/" value="4"/>
+      <cell link="/" title="监督事件1" value="2"/>
+      <cell link="/" title="监督事件2" value="4"/>
     </group>
     <group title="客服中心">
-      <cell title="我要咨询" link="/"></cell>
+      <cell @click="showPosition" title="我要咨询"></cell>
     </group>
     <group title="投诉中心">
-      <cell title="我要投诉" link="/"></cell>
+      <cell link="/" title="我要投诉"></cell>
     </group>
 
 
@@ -49,6 +49,6 @@
           src: 'http://placehold.it/100x100'
         }]
       }
-    },
+    }
   }
 </script>

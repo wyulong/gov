@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="height:100%;">
-    <view-box ref="viewBox" body-padding-bottom="55px">
+    <view-box body-padding-bottom="55px" ref="viewBox">
       <router-view></router-view>
       <tabbar slot="bottom">
-        <tabbar-item selected link="/service">
+        <tabbar-item link="/service" selected>
           <img slot="icon" src="../static/icon/icon.png">
           <img slot="icon-active" src="../static/icon/test.png">
           <span slot="label">微服务</span>
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-
   import {Tabbar, TabbarItem, ViewBox} from 'vux'
 
   export default {

@@ -20,12 +20,13 @@
       <grid-item label="毕业生">
         <img slot="icon" src="http://placehold.it/100x100">
       </grid-item>
-      <grid-item label="残疾人士" icon="http://placehold.it/100x100">
+      <grid-item icon="http://placehold.it/100x100" label="残疾人士">
       </grid-item>
     </grid>
     <group title="办事指南 ">
-      <cell v-for="i in 6" :key="i" :title="i" link="/" value="查看详情"></cell>
+      <cell :key="i" :title="i" link="/" v-for="i in 6" value="查看详情"></cell>
     </group>
+    <button @click="onItemClick">aaa</button>
   </div>
 </template>
 
@@ -44,6 +45,9 @@
     methods: {
       onItemClick () {
         console.log('on item click')
+        this.$http.get('/get.json').then((res) => console.log(res)).catch(error => {
+          console.log(error)
+        })
       }
     }
   }
