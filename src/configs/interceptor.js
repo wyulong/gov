@@ -2,12 +2,13 @@ import Vue from 'vue'
 import qs from 'qs'
 import router from '@/router'
 import store from '@/store'
-import CommonServer from '@/api/common'
 import wechatAuth from '@/plugins/wechatAuth'
+import wechat from './wechat'
+import service from '../utils/request'
 
 Vue.use(wechatAuth, {
-  appid: process.env.VUE_APP_WECHAT_APP_ID,
-  redirect_uri: process.env.VUE_APP_API_URL
+  appid: wechat.VUE_APP_WECHAT_APP_ID,
+  redirect_uri: wechat.VUE_APP_BASE_URL
 })
 
 router.beforeEach(async (to, from, next) => {
@@ -20,10 +21,17 @@ router.beforeEach(async (to, from, next) => {
       break
     case 1:
       try {
-        wechatAuth.returnFromWechat(to.fullPath)
+        var path = window.location.href
+        if (path.endsWith('#/')) {
+          path = path.substr(0, path.length - 2)
+        }
+        wechatAuth.returnFromWechat(path)
         await processLogin(wechatAuth.code)
         next()
       } catch (err) {
+        console.log('error')
+        console.log(err)
+
         await store.dispatch('setLoginStatus', 0)
         next()
       }
@@ -64,19 +72,29 @@ function processUrl () {
  * @returns {Promise<any>}
  */
 function processLogin (code) {
+  console.log('processLogin' + code)
   const data = {
     code
   }
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     try {
-      const {userInfo, accessToken} = await CommonServer.login(data)
+      await service({
+        url: '/user/login',
+        method: 'post',
+        data
+      }).then(response => {
+        let token = response.data.accessToken
+        let user = response.data.userInfo
+        console.log(token)
+        console.log(user)
 
-      await store.dispatch('setLoginStatus', 2)
-      await store.dispatch('setAccessToken', accessToken)
-      await store.dispatch('setUserInfo', userInfo)
+        store.dispatch('setLoginStatus', 2)
+        store.dispatch('setAccessToken', token)
+        store.dispatch('setUserInfo', user)
+      })
 
-      resolve({status: 1, data: '登录成功'})
+      resolve({data: '登录成功'})
     } catch (err) {
       reject(err)
     }

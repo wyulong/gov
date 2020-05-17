@@ -12,6 +12,7 @@
 
 <script>
   import {Card, Cell, Grid, GridItem, Group, GroupTitle, Panel} from 'vux'
+  import store from '../../store'
 
   export default {
     name: 'My',
@@ -29,10 +30,11 @@
         console.log('on item click')
       }
     },
+
     data () {
       return {
         userInfo: [{
-          title: '李晓霞',
+          title: store.state.userInfo,
           desc: '普通用户',
           src: 'http://placehold.it/100x100'
         }]
