@@ -31,7 +31,6 @@ router.beforeEach(async (to, from, next) => {
       } catch (err) {
         console.log('error')
         console.log(err)
-
         await store.dispatch('setLoginStatus', 0)
         next()
       }
@@ -80,12 +79,12 @@ function processLogin (code) {
   return new Promise(async (resolve, reject) => {
     try {
       await service({
-        url: '/user/login',
+        url: '/user/wechat/login',
         method: 'post',
         data
       }).then(response => {
-        let token = response.data.accessToken
-        let user = response.data.userInfo
+        let token = response.data.token
+        let user = response.data
         console.log(token)
         console.log(user)
 

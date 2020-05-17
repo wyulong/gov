@@ -2,7 +2,7 @@
   <div>
     <group-title>热点服务</group-title>
     <grid>
-      <grid-item label="教育服务">
+      <grid-item label="教育服务" link="/education/add">
         <img slot="icon" src="http://placehold.it/100x100">
       </grid-item>
       <grid-item label="交通服务">
@@ -26,7 +26,6 @@
     <group title="办事指南 ">
       <cell :key="i" :title="i" link="/" v-for="i in 6" value="查看详情"></cell>
     </group>
-    <button @click="onItemClick">aaa</button>
   </div>
 </template>
 

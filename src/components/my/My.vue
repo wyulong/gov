@@ -4,8 +4,12 @@
       <panel :list="userInfo" type="1"/>
     </group>
     <group title="我的办件 ">
-      <cell link="/" title="办理中" value="2"></cell>
-      <cell link="/" title="已完成" value="4"></cell>
+      <cell link="/education/list" title="教育服务" value="2"></cell>
+      <cell link="/" title="交通服务" value="4"></cell>
+      <cell link="/" title="社保服务" value="4"></cell>
+      <cell link="/" title="困难家庭" value="4"></cell>
+      <cell link="/" title="毕业生" value="4"></cell>
+      <cell link="/" title="残疾人士" value="4"></cell>
     </group>
   </div>
 </template>
@@ -34,9 +38,9 @@
     data () {
       return {
         userInfo: [{
-          title: store.state.userInfo,
-          desc: '普通用户',
-          src: 'http://placehold.it/100x100'
+          title: store.state.userInfo.name,
+          desc: store.state.userInfo.role,
+          src: store.state.userInfo.headImg
         }]
       }
     }
