@@ -1,14 +1,11 @@
 <template>
   <div>
-    <group title="学校信息" label-width="5em" label-align="left">
-      <x-input title="学校" v-model="education.school" placeholder="请填写学校"></x-input>
-      <x-number title="学年" align="left" v-model="education.schoolYear"
-                button-style="round" :min="2010" :max="2020"></x-number>
-      <x-input title="专业" v-model="education.major" placeholder="请填写专业"></x-input>
+    <group title="车辆信息" label-width="5em" label-align="left">
+      <x-input title="车牌号" v-model="traffic.carNumber" placeholder="请填写车牌号"></x-input>
     </group>
     <group title="业务信息" label-width="5em" label-align="left">
-      <x-input title="标题" v-model="education.title" placeholder="请填写标题"></x-input>
-      <x-textarea title="详细信息" v-model="education.content" placeholder="请填写详细信息" :show-counter="false"
+      <x-input title="标题" v-model="traffic.title" placeholder="请填写标题"></x-input>
+      <x-textarea title="详细信息" v-model="traffic.content" placeholder="请填写详细信息" :show-counter="false"
                   :rows="4"></x-textarea>
     </group>
     <br>
@@ -22,7 +19,7 @@
         </flexbox-item>
       </flexbox>
     </box>
-    <toast v-model="submitSuccess" @on-hide="onHide">提交成功</toast>
+    <toast v-model="submitSuccess" @on-hide="back">修改成功</toast>
 
   </div>
 </template>
@@ -60,31 +57,38 @@
     },
     methods: {
       back () {
-        this.$router.push('/service')
+        this.$router.push({name: 'TrafficDetail', params: {id: this.traffic.id}})
       },
       submit () {
         console.log('submit')
-        this.$http.post('/education/addEducation', this.education).then(response => {
+        this.$http.post('/traffic/editTraffic', this.traffic).then(response => {
           if (response.status === 200) {
             this.submitSuccess = true
           }
         })
-      },
-      onHide () {
-        this.$router.push('/service')
       }
     },
     data () {
       return {
-        education: {
+        traffic: {
           school: '',
           schoolYear: 2020,
           major: '',
           title: '',
-          content: ''
+          content: '',
+          status: 0,
+          reply: ''
         },
         submitSuccess: false
       }
+    },
+    mounted () {
+      let id = this.$route.params.id
+      this.$http.get('/traffic/getTraffic?id=' + id).then(response => {
+        if (response.status === 200) {
+          this.traffic = response.data
+        }
+      })
     }
   }
 </script>

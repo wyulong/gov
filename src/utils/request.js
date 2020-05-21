@@ -17,24 +17,19 @@ service.interceptors.request.use(config => {
 })
 
 // http响应拦截器
-// service.interceptors.response.use(response => {
-//   const res = response.data
-//   console.log(res)
-//   // if (response.status === 200) {
-//   return res.data
-//   // } else {
-//   //   if (res.errCode === 401 || res.errCode === 403) {
-//   //     store.dispatch('setLoginStatus', 0)
-//   //     // 重新登录
-//   //     window.location.reload()
-//   //   } else {
-//   //     console.log({
-//   //       message: res.errMsg
-//   //     })
-//   //   }
-//   // }
-// }, error => {
-//   return Promise.reject(error)
-// })
+service.interceptors.response.use(response => {
+  const res = response.data
+  if (response.status === 200) {
+    if (res.code === 401 || res.code === 403) {
+      store.dispatch('setLoginStatus', 0)
+      // 重新登录
+      window.location.reload()
+    } else {
+      return response
+    }
+  }
+}, error => {
+  return Promise.reject(error)
+})
 
 export default service

@@ -4,18 +4,18 @@
       <router-view></router-view>
       <tabbar slot="bottom">
         <tabbar-item link="/service" selected>
-          <img slot="icon" src="../static/icon/icon.png">
-          <img slot="icon-active" src="../static/icon/test.png">
+          <img slot="icon" src="../static/icon/service.png">
+          <img slot="icon-active" src="../static/icon/service.png">
           <span slot="label">微服务</span>
         </tabbar-item>
         <tabbar-item link="/chat">
-          <img slot="icon" src="../static/icon/icon.png">
-          <img slot="icon-active" src="../static/icon/test.png">
+          <img slot="icon" src="../static/icon/chat.png">
+          <img slot="icon-active" src="../static/icon/chat.png">
           <span slot="label">微互动</span>
         </tabbar-item>
         <tabbar-item link="/my">
-          <img slot="icon" src="../static/icon/icon.png">
-          <img slot="icon-active" src="../static/icon/test.png">
+          <img slot="icon" src="../static/icon/my.png">
+          <img slot="icon-active" src="../static/icon/my.png">
           <span slot="label">我的</span>
         </tabbar-item>
       </tabbar>
