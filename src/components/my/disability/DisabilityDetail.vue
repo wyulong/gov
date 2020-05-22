@@ -101,7 +101,7 @@
       },
       remove () {
         this.$http.post('/disability/deleteDisability', this.disability).then(response => {
-          if (response.status === 200) {
+          if (response.code === 0) {
             this.submitSuccess = true
           }
         })
@@ -129,7 +129,7 @@
     mounted () {
       let id = this.$route.params.id
       this.$http.get('/disability/getDisability?id=' + id).then(response => {
-        if (response.status === 200) {
+        if (response.code === 0) {
           this.disability = response.data
         }
       })

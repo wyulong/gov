@@ -63,9 +63,8 @@
         this.$router.push('/service')
       },
       submit () {
-        console.log('submit')
         this.$http.post('/education/addEducation', this.education).then(response => {
-          if (response.status === 200) {
+          if (response.code === 0) {
             this.submitSuccess = true
           }
         })

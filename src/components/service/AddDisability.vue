@@ -66,7 +66,7 @@
       submit () {
         console.log('submit')
         this.$http.post('/disability/addDisability', this.disability).then(response => {
-          if (response.status === 200) {
+          if (response.code === 0) {
             this.submitSuccess = true
           }
         })

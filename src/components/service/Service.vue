@@ -3,7 +3,7 @@
     <group-title>热点服务</group-title>
     <grid>
       <grid-item label="教育服务" link="/education/add">
-        <img slot="icon" src="../../../static/icon/chat.png">
+        <img slot="icon" src="../../../static/icon/education.png">
       </grid-item>
       <grid-item label="交通服务" link="/traffic/add">
         <img slot="icon" src="../../../static/icon/traffic.png">

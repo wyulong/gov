@@ -50,7 +50,7 @@
     },
     mounted () {
       this.$http.post('/traffic/listTraffic').then(response => {
-        if (response.status === 200) {
+        if (response.code === 0) {
           this.traffics = response.data
         }
       })

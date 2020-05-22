@@ -65,7 +65,7 @@
       submit () {
         console.log('submit')
         this.$http.post('/education/editEducation', this.education).then(response => {
-          if (response.status === 200) {
+          if (response.code === 0) {
             this.submitSuccess = true
           }
         })
@@ -88,7 +88,7 @@
     mounted () {
       let id = this.$route.params.id
       this.$http.get('/education/getEducation?id=' + id).then(response => {
-        if (response.status === 200) {
+        if (response.code === 0) {
           this.education = response.data
         }
       })

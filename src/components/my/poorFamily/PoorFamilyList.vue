@@ -50,7 +50,7 @@
     },
     mounted () {
       this.$http.post('/poorFamily/listPoorFamily').then(response => {
-        if (response.status === 200) {
+        if (response.code === 0) {
           this.poorFamilys = response.data
         }
       })

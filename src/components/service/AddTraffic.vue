@@ -62,7 +62,7 @@
       submit () {
         console.log('submit')
         this.$http.post('/traffic/addTraffic', this.traffic).then(response => {
-          if (response.status === 200) {
+          if (response.code === 0) {
             this.submitSuccess = true
           }
         })
