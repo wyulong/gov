@@ -4,12 +4,12 @@
       <panel :list="userInfo" type="1"/>
     </group>
     <group title="我的办件 ">
-      <cell link="/education/list" title="教育服务" value="2"></cell>
-      <cell link="/traffic/list" title="交通服务" value="4"></cell>
-      <cell link="/" title="社保服务" value="4"></cell>
-      <cell link="/poorFamily/list" title="困难家庭" value="4"></cell>
-      <cell link="/graduate/list" title="毕业生" value="4"></cell>
-      <cell link="/disability/list" title="残疾人士" value="4"></cell>
+      <cell link="/education/list" title="教育服务" value="查看更多"></cell>
+      <cell link="/traffic/list" title="交通服务" value="查看更多"></cell>
+      <cell link="/insurance/list" title="社保服务" value="查看更多"></cell>
+      <cell link="/poorFamily/list" title="困难家庭" value="查看更多"></cell>
+      <cell link="/graduate/list" title="毕业生" value="查看更多"></cell>
+      <cell link="/disability/list" title="残疾人士" value="查看更多"></cell>
     </group>
   </div>
 </template>

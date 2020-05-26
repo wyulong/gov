@@ -8,7 +8,7 @@
       <grid-item label="交通服务" link="/traffic/add">
         <img slot="icon" src="../../../static/icon/traffic.png">
       </grid-item>
-      <grid-item label="社保服务">
+      <grid-item label="社保服务"  link="/insurance/add">
         <img slot="icon" src="../../../static/icon/shebao.png">
       </grid-item>
     </grid>
@@ -25,7 +25,8 @@
       </grid-item>
     </grid>
     <group title="办事指南 ">
-      <cell :key="i" :title="i" link="/" v-for="i in 6" value="查看详情"></cell>
+      <cell :key="item.id" :title="item.title" v-for="item in list" is-link value="查看详情"
+            @click.native="showDetail(item)"/>
     </group>
   </div>
 </template>
@@ -42,13 +43,35 @@
       Group,
       Cell
     },
+    data () {
+      return {
+        filter: {
+          page: 1,
+          limit: 20
+        },
+        list: []
+      }
+    },
     methods: {
       onItemClick () {
         console.log('on item click')
         this.$http.get('/get.json').then((res) => console.log(res)).catch(error => {
           console.log(error)
         })
+      },
+      getList () {
+        this.$http.post('/guidance/listGuidance', this.filter).then(response => {
+          if (response.code === 0) {
+            this.list = response.data.records
+          }
+        })
+      },
+      showDetail (item) {
+        this.$router.push({name: 'GuideDetail', params: {id: item.id}})
       }
+    },
+    created () {
+      this.getList()
     }
   }
 </script>

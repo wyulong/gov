@@ -23,6 +23,21 @@ import AddDisability from '../components/service/AddDisability'
 import DisabilityList from '../components/my/disability/DisabilityList'
 import DisabilityDetail from '../components/my/disability/DisabilityDetail'
 import EditDisability from '../components/my/disability/EditDisability'
+import GuideDetail from '../components/service/GuideDetail'
+import AddInsurance from '../components/service/AddInsurance'
+import InsuranceList from '../components/my/insurance/InsuranceList'
+import InsuranceDetail from '../components/my/insurance/InsuranceDetail'
+import EditInsurance from '../components/my/insurance/EditInsurance'
+import NoticeDetail from '../components/chat/NoticeDetail'
+import AddConsult from '../components/chat/consult/AddConsult'
+import ConsultDetail from '../components/chat/consult/ConsultDetail'
+import EditConsult from '../components/chat/consult/EditConsult'
+import ConsultList from '../components/chat/consult/ConsultList'
+import AddComplain from '../components/chat/complain/AddComplain'
+import ComplainList from '../components/chat/complain/ComplainList'
+import ComplainDetail from '../components/chat/complain/ComplainDetail'
+import EditComplain from '../components/chat/complain/EditComplain'
+import Fast from '../components/chat/Fast'
 
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location, onResolve, onReject) {
@@ -139,7 +154,75 @@ export default new Router({
       path: '/disability/edit',
       name: 'EditDisability',
       component: EditDisability
+    },
+    {
+      path: '/guide/detail',
+      name: 'GuideDetail',
+      component: GuideDetail
+    },
+    {
+      path: '/notice/detail',
+      name: 'NoticeDetail',
+      component: NoticeDetail
+    },
+    {
+      path: '/insurance/add',
+      component: AddInsurance
+    },
+    {
+      path: '/insurance/list',
+      component: InsuranceList
+    },
+    {
+      path: '/insurance/detail',
+      name: 'InsuranceDetail',
+      component: InsuranceDetail
+    },
+    {
+      path: '/insurance/edit',
+      name: 'EditInsurance',
+      component: EditInsurance
+    },
+    {
+      path: '/consult/add',
+      component: AddConsult
+    },
+    {
+      path: '/consult/list',
+      component: ConsultList
+    },
+    {
+      path: '/consult/detail',
+      name: 'ConsultMessageDetail',
+      component: ConsultDetail
+    },
+    {
+      path: '/consult/edit',
+      name: 'EditConsultMessage',
+      component: EditConsult
+    },
+    {
+      path: '/complain/add',
+      component: AddComplain
+    },
+    {
+      path: '/complain/list',
+      component: ComplainList
+    },
+    {
+      path: '/complain/detail',
+      name: 'ComplainMessageDetail',
+      component: ComplainDetail
+    },
+    {
+      path: '/complain/edit',
+      name: 'EditComplainMessage',
+      component: EditComplain
+    },
+    {
+      path: '/fast',
+      name: 'Fast',
+      component: Fast
     }
-
   ]
 })
